@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <style>
+      body {
+        background: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST" action="/" >
+      <input type='number' name='guess' min='1111' max='6666' placeholder="Your guess" autofocus  style="width: 9em" required />
+      <input type='submit' value='Guess!' />
+    </form>
+    <form method="GET" action="/newgame" >
+      <input type='submit' value='Start a new game!'/>
+    </form>
+    <form method="GET" action="/rules">
+      <input type='submit' value="How do I play?">
+    </form>
+
+    <br><p>Turns remaining: <%= 12 - @turn %></p>
+
+    <br><p>| Guess | R | W |</p>
+    <% @history_hash.each do |guess, result| %>
+      <p><%= guess %> <%= result %></p>
+
+    <% end %>
+  </body>
+</html>

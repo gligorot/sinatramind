@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <style>
+      body {
+        background: gray;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="GET" action="/newgame" >
+      <input type='submit' value='Start a new game!' />
+    </form>
+    <br><p><%= @message %></p>
+
+    <p>The secret code was <b><%= @secret_code %></b></p><br>
+
+    <p>Your tries are listed below: </p>
+    <% @history_hash.each do |guess, result| %>
+      <p><%= guess %> <%= result %></p>
+
+    <% end %>
+  </body>
+</html>
+
